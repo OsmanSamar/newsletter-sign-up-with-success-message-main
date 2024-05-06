@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 45px;
+      }
+      .attribution a {
+        color: hsl(4, 100%, 67%);
+      }
+      .attribution {
+        color: white;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              Roboto: ["Roboto", "sans-serif "],
+            },
+            colors: {
+              tomato: "hsl(4, 100%, 67%)",
+              tomatobg: "hsl(4, 100%, 92%)",
+              darkgrey: "hsl(234, 29%, 20%)",
+              charcoalgrey: "hsl(235, 18%, 26%)",
+
+              grey: "hsl(231, 7%, 60%)",
+              white: " hsl(0, 0%, 100%)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="flex flex-col bg-darkgrey font-Roboto items-center justify-center max-auto min-h-screen"
+  >
+    <main>
+      <div
+        id="main-form-container"
+        class="flex flex-col mx-auto h-[750px] max-w-[700px] m-8 p-4 overflow-hidden rounded-lg bg-white drop-shadow-sm md:m-0 auto lg:m-0 auto md:h-[460px] md:w-[850px] md:flex-row-reverse"
+      >
+        <section class="relative md:w-[100%]">
+          <img
+            src="assets/images/illustration-sign-up-mobile.svg"
+            alt="mobile header"
+            class="object-cover md:hidden rounded-lg m-1"
+          />
+          <img
+            src="assets/images/illustration-sign-up-desktop.svg"
+            alt="desktop header"
+            class="hidden object-cover md:w-[99%] md:h-[99%] md:block rounded-lg m-1"
+          />
+          <!-- Background Overlay -->
+          <!-- <div class="absolute inset-0 bg-accent opacity-70"></div> -->
+        </section>
+        <!-- end -->
+
+        <section class="p-4 m-2 text-start md:w-[100%] md:p-8">
+          <h1 class="text-black text-3xl font-bold text-start md:text-4xl">
+            Stay updated!
+          </h1>
+          <p
+            class="text-charcoalgrey text-center text-xs mt-4 mb-2 p-1 md:mb-2 text-start"
+          >
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+
+          <div class="flex items-center mt-4 md:mr-14 md:mt-0">
+            <img src="assets/images/icon-list.svg" />
+            <p class="text-charcoalgrey mt-1 text-xs p-1">
+              Product discovery and building what matters
+            </p>
+          </div>
+
+          <div class="flex items-center mt-4 md:mr-14 md:mt-0">
+            <img src="assets/images/icon-list.svg" />
+            <p class="text-charcoalgrey mt-2 text-xs p-1">
+              Measuring to ensure updates are a success
+            </p>
+          </div>
+
+          <div class="flex items-center mt-4 md:mr-14 md:mt-0">
+            <img src="assets/images/icon-list.svg" />
+            <p class="text-charcoalgrey mt-2 text-xs p-1">And much more!</p>
+          </div>
+
+          <!-- Sign-up form start -->
+          <div class="p-2">
+            <form class="relative">
+              <strong class="block text-left text-xs text-black">
+                Email address
+              </strong>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@company.com"
+                required
+                class="w-full md:w-[270px] py-2 px-6 rounded-md placeholder-gray-400 text-base mb-4 lg:mb-4 border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6"
+              />
+              <!-- oninput="validateEmail(event)" -->
+
+              <span
+                class="absolute top-[-0.2rem] right-0 text-tomato text-sm hidden md:top-[-0.2rem]"
+                id="email-error"
+              >
+                Valid Email Required
+              </span>
+              <button
+                onclick="validateEmail(event)"
+                type="submit"
+                class="w-full md:w-[270px] bg-charcoalgrey py-3 px-6 font-bold text-xs text-white rounded-md border border-gray-300 focus:outline-none focus:ring hover:bg-blue"
+              >
+                Subscribe to monthly newsletter
+              </button>
+            </form>
+          </div>
+          <!-- Sign-up form end -->
+
+          <!-- E-mail Validation -->
+          <script src="script.js"></script>
+        </section>
+      </div>
+      <!-- Success message start -->
+      <div
+        id="success-message"
+        class="hidden flex-col mx-auto h-[290px] max-w-[290px] m-8 p-4 overflow-hidden bg-white border rounded-lg drop-shadow-sm md:m-0 auto lg:m-0 auto md:h-[310px] md:w-[290px]"
+      >
+        <img src="assets/images/icon-success.svg" class="w-8" />
+        <span
+          class="block sm:inline font-bold text-xl text-start mt-6 mb-2 p-1 md:text-2xl"
+          >Thanks for subscribing!
+        </span>
+        <p class="text-charcoalgrey m-2 text-sm p-1">
+          A confirmation email has been sent to
+          <strong id="email-address"></strong>. Please open it and click the
+          button inside to confirm your subscription.
+        </p>
+        <button
+          onclick="window.location.href = 'index.html';"
+          class="w-full md:w-[240px] bg-charcoalgrey py-3 px-8 m-1 font-bold text-xs text-white rounded-md border border-gray-300 focus:outline-none focus:ring hover:bg-blue"
+        >
+          Dismiss message
+        </button>
+
+        <!-- <button
+              id="dismiss-button"
+              class="absolute top-0 bottom-0 right-0 px-4 py-3"
+              onclick="dismissSuccessMessage()"
+            >
+              <svg
+                class="fill-current h-6 w-6 text-green-500"
+                role="button"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <title>Dismiss</title>
+                <path
+                  d="M6.293 7.293a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414L11.414 12l2.293 2.293a1 1 0 01-1.414 1.414L10 13.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 12 6.293 9.707a1 1 0 010-1.414z"
+                />
+              </svg>
+            </button> -->
+      </div>
+      <!-- Success message end -->
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Samar Osman</a>.
+    </div>
+  </body>
+</html>
